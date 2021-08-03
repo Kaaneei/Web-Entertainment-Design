@@ -1,0 +1,464 @@
+@charset "UTF-8";
+
+html {
+  font-size: 100%;
+}
+body {
+  background-color: #f0f0f0;
+  color: #000;
+  font-size: 0.875rem;
+}
+a {
+  color: #000;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+li {
+  list-style: none;
+}
+
+.logo {
+  width: 100px;
+  line-height: 1px;
+  margin-right: 60px;
+}
+.logo a {
+  display: block;
+}
+.section-title {
+  font-weight: normal;
+  line-height: 1;
+  margin-bottom: 50px;
+}
+/*
+疑似要素を使って下線を引く
+*/
+.section-title::after {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background-color: #000;
+  display: block;
+}
+/*
+「display: inline-block;」を設定してブロック化
+*/
+.section-title .en {
+  display: block;
+  font-size: 2.25rem;
+  letter-spacing: 0.3em;
+  margin-bottom: 10px;
+}
+.section-title .ja {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 36px;
+}
+/*
+横幅を設定
+*/
+.wrapper {
+  width: 100%;
+  max-width: 1032px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+#header {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#header .inner {
+  display: flex;
+  align-items: center;
+}
+#header .inner ul {
+  display: flex;
+  align-items: center;
+}
+#header .inner li {
+  margin-right: 30px;
+}
+#header .inner li:last-child {
+  margin-right: 0;
+}
+#header .contact {
+  width: 200px;
+  height: 80px;
+  line-height: 80px;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.75rem;
+  display: inline-block;
+  text-align: center;
+}
+#header .contact:hover {
+  background-color: #333;
+}
+
+/*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
+#mainvisual {
+  margin-bottom: 120px;
+}
+/*
+メインビジュアルを画面の高さに合わせる
+headerの高さが80pxあるので、100vhから80px分だけマイナス
+*/
+#mainvisual img {
+  width: 100%;
+  height: calc(100vh - 80px);
+  object-fit: cover;
+}
+
+/*-------------------------------------------
+News
+-------------------------------------------*/
+#news {
+  margin-bottom: 120px;
+}
+#news .list {
+  display: flex;
+  justify-content: space-between;
+}
+/*
+「width: calc(100%/3);」で横幅を3等分
+*/
+#news .list li {
+  width: calc(100%/3);
+  border-right: solid 1px #000;
+  padding: 10px 20px;
+}
+#news .list li:first-child {
+  padding-left: 0;
+}
+#news .list li:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+#news .list li .date-area {
+  margin-bottom: 16px;
+}
+#news .list li .date-area span {
+  width: 50px;
+  height: 20px;
+  line-height: 20px;
+  background-color: #000;
+  color: #fff;
+  display: inline-block;
+  font-size: 0.75rem;
+  margin-left: 10px;
+  text-align: center;
+}
+
+/*-------------------------------------------
+About
+-------------------------------------------*/
+#about {
+  display: flex;
+  margin-bottom: 120px;
+}
+#about .img {
+  width: 55%;
+}
+#about .img img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+#about .text {
+  width: 45%;
+  padding: 180px 5% 0 5%;
+}
+#about .text p {
+  line-height: 2.2;
+}
+
+/*-------------------------------------------
+Business
+-------------------------------------------*/
+#business {
+  margin-bottom: 120px;
+}
+#business .flex {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10%;
+}
+#business .flex .left {
+  width: 46%;
+  margin-top: 100px;
+}
+#business .flex .right {
+  width: 46%;
+}
+#business .flex .item {
+  margin-bottom: 50px;
+}
+#business .flex .item:last-child {
+  margin-bottom: 0;
+}
+#business .flex .title {
+  font-weight: bold;
+  margin: 0 0 10px 18px;
+  position: relative;
+}
+/*
+疑似要素でタイトルの横線を引く
+*/
+#business .flex .title::before {
+  content: "";
+  width: 8px;
+  height: 1px;
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  left: -18px;
+}
+
+/*-------------------------------------------
+Company
+-------------------------------------------*/
+/*
+テキストと画像はpositionを使って配置
+子要素の「position: absolute;」で高さがなくなるため、
+「height: 750px;」を指定して高さを確保
+*/
+#company {
+  height: 750px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+#company .text {
+  width: 55%;
+  background-color: #fff;
+  padding: 100px 8% 100px 6%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#company .img {
+  width: 53%;
+  position: absolute;
+  top: 115px;
+  right: 0;
+}
+#company .img img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+#company .info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#company .info dt {
+  width: 20%;
+  margin-top: 10px;
+}
+/*
+1つめのdtにはmargin-topを設定しない
+*/
+#company .info dt:first-of-type {
+  margin-top: 0;
+}
+#company .info dd {
+  width: 80%;
+  margin-top: 10px;
+}
+/*
+1つめのddにはmargin-topを設定しない
+*/
+#company .info dd:first-of-type {
+  margin-top: 0;
+}
+#company .info .add {
+  margin-left: 20%;
+}
+
+/*-------------------------------------------
+footer
+-------------------------------------------*/
+#footer {
+  background-color: #fff;
+  padding-bottom: 20px;
+}
+#footer .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 0;
+}
+#footer .flex .logo {
+  margin-right: 0;
+}
+#footer .copyright {
+  font-size: 0.625rem;
+}
+
+/*-------------------------------------------
+SP
+-------------------------------------------*/
+@media screen and (max-width: 900px) {
+  .logo {
+    width: 80px;
+    margin: 8px 0;
+  }
+  .section-title {
+    margin-bottom: 34px;
+  }
+  .section-title .ja {
+    margin-bottom: 24px;
+  }
+
+  /*-------------------------------------------
+  ヘッダー
+  -------------------------------------------*/
+  #header .inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  #header .contact {
+    display: none;
+  }
+
+  /*-------------------------------------------
+  Mainvisual
+  -------------------------------------------*/
+  #mainvisual {
+    margin-bottom: 80px;
+  }
+
+  /*-------------------------------------------
+  News
+  -------------------------------------------*/
+  #news {
+    margin-bottom: 80px;
+  }
+  #news .list {
+    flex-direction: column;
+  }
+  #news .list li {
+    width: 100%;
+    border-right: none;
+    padding: 10px 0;
+    margin-bottom: 20px;
+  }
+  #news .list li:last-child {
+    margin-bottom: 0;
+  }
+
+  /*-------------------------------------------
+  About
+  -------------------------------------------*/
+  #about {
+    flex-direction: column;
+    margin-bottom: 80px;
+  }
+  #about .img {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  #about .img img {
+    height: 300px;
+  }
+  #about .text {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  /*-------------------------------------------
+  Business
+  -------------------------------------------*/
+  #business {
+    margin-bottom: 80px;
+  }
+  #business .flex {
+    flex-direction: column;
+    padding: 0;
+  }
+  #business .flex .left {
+    width: 100%;
+    margin: 0 0 30px 0;
+  }
+  #business .flex .right {
+    width: 100%;
+  }
+  #business .flex .item {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  #business .flex .title {
+    text-align: left;
+  }
+
+  /*-------------------------------------------
+  Company
+  -------------------------------------------*/
+  /*
+  「position: static;」でrelativeを解除
+  */
+  #company {
+    height: auto;
+    flex-direction: column;
+    position: static;
+  }
+  /*
+  「position: static;」でabsoluteを解除
+  */
+  #company .text {
+    width: 100%;
+    padding: 40px 20px;
+    margin-bottom: 20px;
+    position: static;
+  }
+  /*
+  「position: static;」でabsoluteを解除
+  */
+  #company .img {
+    width: 100%;
+    padding: 0;
+    position: static;
+  }
+  #company .info {
+    flex-direction: column;
+  }
+  #company .info dt {
+    width: 100%;
+    margin-top: 20px;
+  }
+  #company .info dd {
+    width: 100%;
+    margin-top: 5px;
+    padding-left: 14px;
+  }
+  #company .info dd:first-of-type {
+    margin-top: 5px;
+  }
+  #company .info .add {
+    margin-left: 0;
+  }
+
+  /*-------------------------------------------
+  footer
+  -------------------------------------------*/
+  #footer .flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  #footer .flex .logo {
+    margin-bottom: 10px;
+  }
+}
